@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<string.h>
+
+void main()
+{
+	//variables
+	int choice ;
+	float bill, menuP, extraP, deliveryP ;
+	char name, mobile_number[11], extra, delivery, menu[20];
+	
+	//asking for user inputs
+	printf("Enter your name: ");
+	scanf("%[^\n]s", &name);
+	fflush(stdin);
+	printf("Enter your mobile number: ");
+	scanf("%c", &mobile_number);
+	printf("\n--------------------------------------------");
+	printf("\n 1. Chicken barbeque Pizza");
+	printf("\n 2. Spring Roll");
+	printf("\n--------------------------------------------");
+	fflush(stdin);
+	printf("\nEnter your choice: ");
+	scanf("%d", &choice);
+		
+	switch(choice)
+	{
+        case 1:
+            strcpy(menu,"Chicken barbeque Pizza");
+            menuP = 15.50;
+            fflush(stdin);
+    	    printf("\nExtra cheese? [Y/N]: ");
+            scanf("%c", extra);
+        if(extra == 'Y' || extra == 'y')
+            extraP= 3.50;
+        else
+        	extraP= 0.00;
+	fflush(stdin);
+        case 2:
+            strcpy(menu, "Spring Roll");
+            menuP = 6.90;
+            fflush(stdin);
+			printf("\nSpicy sauce? [Y/N]: ");
+            scanf("%c", extra);
+        if(extra == 'Y' || extra == 'y')
+            extraP= 1.50;
+        else
+        	extraP= 0.00;
+	}
+	printf("\nNeed delivery? [Y/N]: ");
+	scanf("%d", &delivery);
+	
+		if(delivery== 'Y' |||| delivery == 'y')
+			deliveryP= + 10.00;
+		else
+			deliveryP= + 0.00;
+			
+	printf("\n--------------------------------------------");
+	printf("\n 1. RECEIPT");
+	printf("\n--------------------------------------------");
+	printf("\nName :", name);
+	printf("\nMobile No. :", mobile_number);
+	printf("\nMenu :", menu);
+	printf("\nExtra:", extra);
+	printf("\nExtra Price:", extraP);
+	printf("\nMenu Price :", menuP);
+	printf("\nDelivery :", delivery);
+	printf("\nDelivery Price:", deliveryP);
+	
+	bill = menuP + extraP + deliveryP;
+	printf("\nBill : %2.f", bill);
+}
